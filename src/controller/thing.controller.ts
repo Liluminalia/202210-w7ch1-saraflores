@@ -1,7 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
-import importData from '../db.json' assert { type: 'json' };
-// import fs from 'fs/promises'
+import fs from 'fs';
 import { Thing } from '../interfaces/things.js';
+const dataFile = process.env.DATA_FILE || '';
+const importData = JSON.parse(fs.readFileSync(dataFile, 'utf-8'));
 let data: Array<Thing> = importData.things;
 
 export class ThingController {
