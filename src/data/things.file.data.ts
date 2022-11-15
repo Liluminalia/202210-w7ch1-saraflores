@@ -41,8 +41,6 @@ export class ThingsFileData implements Data<Thing> {
     }
     async delete(id: id): Promise<void> {
         const aData = await this.getAll();
-        const index = aData.findIndex((item) => item.id === id);
-        if (!index) throw new Error('not found id');
         aData.filter((item) => item.id !== id);
         await this.#writeData({ things: aData });
     }
