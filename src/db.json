@@ -1,8 +1,1 @@
-{
-    "things": [
-        { "id": 1, "name": "pepito", "age": 4, "status": true },
-        { "id": 2, "name": "sara", "age": 33, "status": false },
-        { "id": 3, "name": "froilan", "age": 14, "status": false },
-        { "name": "dd", "age": 7, "status": true, "id": 415778610 }
-    ]
-}
+{"things":[{"id":1,"name":"pepito","age":4,"status":true},{"id":2,"name":"sara","age":33,"status":false},{"id":3,"name":"froilan","age":14,"status":false},{"name":"dd","age":7,"status":true,"id":415778610},{"name":"sdsdf","age":3,"status":false,"id":335526348}]}
