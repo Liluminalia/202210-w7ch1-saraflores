@@ -1,8 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import { nextTick } from 'process';
 import { Data } from '../data/data.js';
 import { HTTPError } from '../interfaces/error.js';
-import { ProtoThing, Thing } from '../interfaces/things.js';
+import { Thing } from '../interfaces/things.js';
 
 export class ThingController {
     constructor(public dataModel: Data<Thing>) {}
