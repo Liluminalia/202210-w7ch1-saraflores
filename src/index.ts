@@ -3,7 +3,7 @@ import http from 'http';
 import { app } from './app.js';
 import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 dotenv.config();
-import { CustomError } from './interfaces/error';
+import { CustomError } from './interfaces/error.js';
 const port = process.env.PORT || 3300;
 const server = http.createServer(app);
 server.on('listening', () => {

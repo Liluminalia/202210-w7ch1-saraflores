@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from 'express';
-import { describe } from 'node:test';
 import { ThingController } from './thing.controller';
 
 describe('Given', () => {
@@ -67,6 +66,7 @@ describe('Given', () => {
                 json: jest.fn(),
                 end: jest.fn(),
             };
+            const next = () => {};
             thingController.deleteController(
                 req as Request,
                 res as unknown as Response,
