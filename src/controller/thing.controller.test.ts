@@ -67,7 +67,6 @@ describe('Given', () => {
                 json: jest.fn(),
                 end: jest.fn(),
             };
-            const next: NextFunction;
             thingController.deleteController(
                 req as Request,
                 res as unknown as Response,
