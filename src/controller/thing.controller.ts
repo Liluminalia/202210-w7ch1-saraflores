@@ -1,7 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
 import fs from 'fs';
 import { Thing } from '../interfaces/things.js';
+import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config();
 const dataFile = process.env.DATA_FILE || '';
+console.log({ dataFile });
 const importData = JSON.parse(fs.readFileSync(dataFile, 'utf-8'));
 let data: Array<Thing> = importData.things;
 
