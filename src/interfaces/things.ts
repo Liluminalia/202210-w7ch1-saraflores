@@ -3,6 +3,9 @@ export type ProtoThing = {
     age: number;
     status: boolean;
 };
+export type Things = {
+    things: Array<Thing>;
+};
 
 export type Thing = {
     id: number;
