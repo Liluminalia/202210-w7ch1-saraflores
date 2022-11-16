@@ -15,12 +15,13 @@ const main = async () => {
     console.log(connector);
 
     const Thing = model('Thing', thingsSchema, 'things');
-    Thing.find; //get all
-    Thing.findById; // get
-    Thing.create; // add
-    Thing.updateOne; // update
-    Thing.findByIdAndUpdate; // update
-    Thing.deleteOne; // delete
+    //codigo comentado
+    // Thing.find; //get all
+    // Thing.findById; // get
+    // Thing.create; // add
+    // Thing.updateOne; // update
+    // Thing.findByIdAndUpdate; // update
+    // Thing.deleteOne; // delete
 
     //funciones
     await Thing.create({
