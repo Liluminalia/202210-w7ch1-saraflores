@@ -34,7 +34,7 @@ export class TableController {
             const newError = new HTTPError(
                 406,
                 'not acceptable',
-                'nombre no incluido'
+                'not included name'
             );
             next(newError);
             return;
@@ -74,18 +74,14 @@ export class TableController {
         }
     }
     #createHttpError(error: Error) {
-        if ((error as Error).message === 'Not found id') {
-            const httpError = new HTTPError(
-                404,
-                'Not Found',
-                (error as Error).message
-            );
+        if (error.message === 'Not found id') {
+            const httpError = new HTTPError(404, 'Not Found', error.message);
             return httpError;
         }
         const httpError = new HTTPError(
             503,
             'Service unavailable',
-            (error as Error).message
+            error.message
         );
         return httpError;
     }
