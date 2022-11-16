@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('Hola mundo! soy Sara');
+    res.send('API de Things, pon /things al final de la URL');
     res.end();
 });
 app.use('/things', thingRouter);
