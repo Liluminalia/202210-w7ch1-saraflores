@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { TableController } from '../controller/table.controller';
-import { TableMongoData } from '../data/tables.mongo.data';
+import { TableController } from '../controller/table.controller.js';
+import { TableMongoData } from '../data/tables.mongo.data.js';
 
 export const tableRouter = Router();
 const controller = new TableController(new TableMongoData());
-tableRouter.get('/', controller.getAllController.bind(controller));
-tableRouter.get('/:id', controller.getController.bind(controller));
-tableRouter.post('/', controller.postController.bind(controller));
-tableRouter.patch('/:id', controller.patchController.bind(controller));
-tableRouter.delete('/:id', controller.deleteController.bind(controller));
+tableRouter.get('/', controller.getAll.bind(controller));
+tableRouter.get('/:id', controller.get.bind(controller));
+tableRouter.post('/', controller.post.bind(controller));
+tableRouter.patch('/:id', controller.patch.bind(controller));
+tableRouter.delete('/:id', controller.delete.bind(controller));

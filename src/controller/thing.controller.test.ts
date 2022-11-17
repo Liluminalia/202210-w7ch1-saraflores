@@ -1,102 +1,41 @@
 import { NextFunction, Request, Response } from 'express';
-import { ThingsFileData } from '../data/things.file.data';
-import { ThingController } from './thing.controller';
+import { TableMongoData } from '../data/tables.mongo.data.js';
+import { TableController } from './table.controller.js';
 
-describe('Given', () => {
-    describe('when', () => {
-        // test comentado, es un stopper
-        // test('then ...getAllController', () => {
-        //     const model = new ThingsFileData();
-        //     const thingController = new ThingController(model);
-        //     const req = {};
-        //     const res = {
-        //         json: jest.fn(),
-        //         end: jest.fn(),
-        //     };
-        //     const next = jest.fn();
+jest.mock('../data/tables.mongo.data');
+describe('Given TablesController', () => {
+    describe('When we instantiate getAll()', () => {
+        TableMongoData.prototype.getAll = jest.fn().mockResolvedValue(['mock']);
+        TableMongoData.prototype.get = jest.fn().mockResolvedValue(['mock']);
+        TableMongoData.prototype.post = jest.fn().mockResolvedValue(['mock']);
+        TableMongoData.prototype.patch = jest.fn().mockResolvedValue(['mock']);
+        TableMongoData.prototype.delete = jest.fn().mockResolvedValue(['mock']);
+        const tableController = new TableController(new TableMongoData());
 
-        //     thingController.getAllController(
-        //         req as Request,
-        //         res as unknown as Response,
-        //         next as NextFunction
-        //     );
-        //     expect(res.json).toHaveBeenCalled();
-        //     expect(res.end).toHaveBeenCalled();
-        // });
-        test('then ...getController', () => {
-            const model = new ThingsFileData();
-
-            const thingController = new ThingController(model);
-            const req = {};
-            const res = {
-                json: jest.fn(),
-                end: jest.fn(),
-            };
-            const next = jest.fn();
-
-            thingController.getController(
-                req as Request,
-                res as unknown as Response,
-                next as NextFunction
-            );
-            expect(res.json).toHaveBeenCalled();
-            expect(res.end).toHaveBeenCalled();
+        const req: Partial<Request> = {};
+        const res: Partial<Response> = {
+            json: jest.fn(),
+        };
+        const next: NextFunction = jest.fn();
+        test('Then getAll should have been called', async () => {
+            await tableController.getAll(req as Request, res as Response, next);
+            expect(res.json).toHaveBeenCalledWith({ tables: ['mock'] });
         });
-        test('then ...postController', () => {
-            const model = new ThingsFileData();
-
-            const thingController = new ThingController(model);
-            const req = {};
-            const res = {
-                json: jest.fn(),
-                end: jest.fn(),
-            };
-            const next = jest.fn();
-
-            thingController.postController(
-                req as Request,
-                res as unknown as Response,
-                next as NextFunction
-            );
-            expect(res.json).toHaveBeenCalled();
-            expect(res.end).toHaveBeenCalled();
+        test('Then get should have been called', async () => {
+            await tableController.get(req as Request, res as Response, next);
+            expect(res.json).toHaveBeenCalledWith({ tables: ['mock'] });
         });
-        test('then ...patchController', () => {
-            const model = new ThingsFileData();
-
-            const thingController = new ThingController(model);
-            const req = {};
-            const res = {
-                json: jest.fn(),
-                end: jest.fn(),
-            };
-            const next = jest.fn();
-
-            thingController.patchController(
-                req as Request,
-                res as unknown as Response,
-                next as NextFunction
-            );
-            expect(res.json).toHaveBeenCalled();
-            expect(res.end).toHaveBeenCalled();
+        test('Then post should have been called', async () => {
+            await tableController.post(req as Request, res as Response, next);
+            expect(res.json).toHaveBeenCalledWith({ tables: ['mock'] });
         });
-        test('then ...deleteController', () => {
-            const model = new ThingsFileData();
-
-            const thingController = new ThingController(model);
-            const req = {};
-            const res = {
-                json: jest.fn(),
-                end: jest.fn(),
-            };
-            const next = jest.fn();
-            thingController.deleteController(
-                req as Request,
-                res as unknown as Response,
-                next as NextFunction
-            );
-            expect(res.json).toHaveBeenCalled();
-            expect(res.end).toHaveBeenCalled();
+        test('Then patch should have been called', async () => {
+            await tableController.patch(req as Request, res as Response, next);
+            expect(res.json).toHaveBeenCalledWith({ tables: ['mock'] });
+        });
+        test('Then delete should have been called', async () => {
+            await tableController.delete(req as Request, res as Response, next);
+            expect(res.json).toHaveBeenCalledWith({ tables: ['mock'] });
         });
     });
 });
