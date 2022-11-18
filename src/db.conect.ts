@@ -9,5 +9,3 @@ export function dbConnect() {
     console.log({ uri });
     return mongoose.connect(uri);
 }
-dbConnect();
-console.log(mongoose.connection.readyState);

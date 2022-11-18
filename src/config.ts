@@ -6,5 +6,5 @@ export const USER = process.env.USER;
 export const PASSW = process.env.PASSW;
 export const CLUSTER = process.env.CLUSTER;
 export const PORT = process.env.PORT;
-
+export const SECRET = process.env.SECRET;
 console.log(USER, PASSW, CLUSTER);

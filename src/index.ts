@@ -1,5 +1,7 @@
 import http from 'http';
 import { app } from './app.js';
+import debugCreator from 'debug';
+const debug = debugCreator('http');
 import { CustomError } from './interfaces/error.js';
 import { dbConnect } from './db.conect.js';
 const port = process.env.PORT || 3300;
@@ -16,7 +18,7 @@ server.on('listening', () => {
                 ? `http://localhost:${addr?.port}`
                 : `port ${addr?.port}`;
     }
-    console.log(`Listening on ${bind}`);
+    debug(`Listening on ${bind}`);
 });
 
 server.on('error', (error: CustomError, response: http.ServerResponse) => {

@@ -5,6 +5,7 @@ import { thingRouter } from './router/things.router.js';
 import { coffeeRouter } from './router/coffee.router.js';
 import { tableRouter } from './router/tables.router.js';
 import { CustomError } from './interfaces/error.js';
+import { userRouter } from './router/user.router.js';
 
 export const app = express();
 app.use(cors());
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
 app.use('/things', thingRouter);
 app.use('/tables', tableRouter);
 app.use('/coffees', coffeeRouter);
+app.use('/users', userRouter);
 app.use(
     (error: CustomError, _req: Request, resp: Response, next: NextFunction) => {
         console.log(
