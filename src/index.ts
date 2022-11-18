@@ -1,7 +1,7 @@
 import http from 'http';
 import { app } from './app.js';
-import debug1 from 'debug';
-const debug = debug1('http');
+import debugCreator from 'debug';
+const debug = debugCreator('http');
 import { CustomError } from './interfaces/error.js';
 import { dbConnect } from './db.conect.js';
 const port = process.env.PORT || 3300;
